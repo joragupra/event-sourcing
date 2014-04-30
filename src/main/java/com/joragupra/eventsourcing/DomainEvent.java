@@ -13,6 +13,8 @@ public abstract class DomainEvent {
 
 	public abstract void process();
 
+	public abstract void reverse();
+
 	public Date getRecorded() {
 		return this.recorded;
 	}
@@ -20,5 +22,5 @@ public abstract class DomainEvent {
 	public Date getOccurred() {
 		return this.occurred;
 	}
-	
+
 }

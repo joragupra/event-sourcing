@@ -22,9 +22,17 @@ public class Ship {
 	}
 
 	public void handleArrival(ArrivalEvent arrivalEvt) {
+		arrivalEvt.setPriorPort(this.port);
 		this.port = arrivalEvt.getPort();
 		for (Cargo c : cargo) {
 			c.handleArrival(arrivalEvt);
+		}
+	}
+
+	public void reverseArrival(ArrivalEvent arrivalEvt) {
+		this.port = arrivalEvt.getPriorPort();
+		for (Cargo c : cargo) {
+			c.reverseArrival(arrivalEvt);
 		}
 	}
 
@@ -34,6 +42,10 @@ public class Ship {
 
 	public void handleLoad(LoadEvent loadEvt) {
 		this.cargo.add(loadEvt.getCargo());
+	}
+
+	public void reverseLoad(LoadEvent loadEvt) {
+		this.cargo.remove(loadEvt.getCargo());
 	}
 
 	public void handleUnload(UnloadEvent unloadEvt) {

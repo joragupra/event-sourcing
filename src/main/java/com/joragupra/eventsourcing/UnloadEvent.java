@@ -16,6 +16,10 @@ public class UnloadEvent extends DomainEvent {
 		ship.handleUnload(this);
 	}
 
+	public void reverse() {
+
+	}
+
 	public Cargo getCargo() {
 		return this.cargo;
 	}

@@ -15,4 +15,9 @@ public class DepartureEvent extends DomainEvent {
 	public void process() {
 		ship.handleDeparture(this);
 	}
+
+	public void reverse() {
+
+	}
+
 }
